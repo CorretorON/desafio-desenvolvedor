@@ -143,7 +143,7 @@
    DB_USERNAME=root
    DB_PASSWORD=
 
-## OBS: Na raiz do projeto back-end estou enviando a documentação do thunder-client que utilizei para criar o endpoints, e também na pasta front-end, deixie as imagens de como ficou o front end, local das imagens assets
+## OBS: Na raiz do projeto back-end estou enviando a documentação do thunder-client que utilizei para criar os endpoints.
 
 
 
