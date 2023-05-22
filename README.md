@@ -1,4 +1,10 @@
 <p>
+    <img src="front-end/src/assets/login.png" width="500">
+ </p>
+  <p>
+    <img src="front-end/src/assets/cadastro.png" width="500">
+ </p>
+<p>
     <img src="front-end/src/assets/home.png" width="500">
  </p>
  <p>
@@ -7,6 +13,7 @@
  <p>
     <img src="front-end/src/assets/visitas.png" width="500">
  </p>
+ 
  
 ## Documentação
     Immobile API (Construída com Laravel)
