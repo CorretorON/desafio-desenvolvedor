@@ -1,7 +1,11 @@
 <p>
     <img src="front-end/src/assets/home.png" width="300">
-    <img src="front-end/src/assets/imovel.png" width="300">
-    <img src="front-end/src/assets/visitas.png" width="300">
+ </p>
+ <p>
+    <img src="front-end/src/assets/imovel.png" width="500">
+ </p>
+ <p>
+    <img src="front-end/src/assets/visitas.png" width="500">
  </p>
  
 ## Documentação
