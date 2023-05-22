@@ -1,0 +1,196 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "CorretorOn",
+    "dateExported": "2023-05-22T14:22:55.533Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "5e6d9d09-65d7-4b5e-8116-51f927781dd7",
+            "name": "User",
+            "containerId": "",
+            "created": "2023-05-19T13:50:16.122Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "dafccc38-5255-4ffd-993a-9daddf92f666",
+            "name": "CreateImmobile",
+            "containerId": "",
+            "created": "2023-05-19T14:47:44.485Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "bef3a166-fb96-48f1-ade3-d6686ad0e2d5",
+            "name": "CreateVisit",
+            "containerId": "",
+            "created": "2023-05-21T18:05:14.487Z",
+            "sortNum": 30000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "08e34883-ecfe-4620-adfb-27142a32c293",
+            "colId": "1e704672-67a3-4753-b727-0287d8d4336c",
+            "containerId": "5e6d9d09-65d7-4b5e-8116-51f927781dd7",
+            "name": "CreateUser",
+            "url": "http://localhost:8000/api/register",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-05-19T13:50:25.590Z",
+            "modified": "2023-05-19T13:56:24.024Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n  \"name\": \"Matheus Morais\",\r\n  \"email\": \"matheus-morais02@hotmail.com\",\r\n  \"password\": \"123456\"\r\n}\r\n",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "57a25b3a-6213-4f61-9adf-17339ddc177d",
+            "colId": "1e704672-67a3-4753-b727-0287d8d4336c",
+            "containerId": "5e6d9d09-65d7-4b5e-8116-51f927781dd7",
+            "name": "Login",
+            "url": "http://localhost:8000/api/login",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-05-19T13:56:39.714Z",
+            "modified": "2023-05-19T13:56:52.848Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"matheus-morais02@hotmail.com\",\n  \"password\": \"123456\"\n}\n",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "f1b8f940-770f-49ad-a11e-abe0b6ba4b4a",
+            "colId": "1e704672-67a3-4753-b727-0287d8d4336c",
+            "containerId": "dafccc38-5255-4ffd-993a-9daddf92f666",
+            "name": "Createimmobile",
+            "url": "http://localhost:8000/api/immobiles",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-05-19T14:47:58.860Z",
+            "modified": "2023-05-21T17:19:35.371Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"owner\": \"Alberto \",\n    \"type\": \"Apartamento\",\n    \"address\": \"Mogilar\",\n    \"bedrooms\": 3,\n    \"bathrooms\": 2,\n    \"total_area\": 125,\n    \"price\": 500000.00\n}\n",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "f6f318f1-6569-412c-805a-e997dcaf12be",
+            "colId": "1e704672-67a3-4753-b727-0287d8d4336c",
+            "containerId": "dafccc38-5255-4ffd-993a-9daddf92f666",
+            "name": "UpdateImmobile",
+            "url": "http://localhost:8000/api/immobiles/1",
+            "method": "PUT",
+            "sortNum": 25000,
+            "created": "2023-05-19T15:20:49.070Z",
+            "modified": "2023-05-19T15:21:20.161Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"owner\": \"Tio zé\",\n    \"type\": \"casa\",\n    \"address\": \"Rua Exemplo, 123\",\n    \"bedrooms\": 3,\n    \"bathrooms\": 2,\n    \"total_area\": 150.5,\n    \"price\": 250000.00\n}\n",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "3927c949-16c1-402e-99eb-3b60ddb40e13",
+            "colId": "1e704672-67a3-4753-b727-0287d8d4336c",
+            "containerId": "5e6d9d09-65d7-4b5e-8116-51f927781dd7",
+            "name": "ListAllUsers",
+            "url": "http://localhost:8000/api/users",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-05-19T14:00:18.007Z",
+            "modified": "2023-05-19T14:00:51.162Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "09cabda8-690a-44ef-b45b-0b5fc830722a",
+            "colId": "1e704672-67a3-4753-b727-0287d8d4336c",
+            "containerId": "dafccc38-5255-4ffd-993a-9daddf92f666",
+            "name": "ListImmobile",
+            "url": "http://localhost:8000/api/immobiles",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-05-19T15:18:46.179Z",
+            "modified": "2023-05-19T15:19:10.524Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "388fadac-3e32-4a0d-91ed-01f4c1f5ac5b",
+            "colId": "1e704672-67a3-4753-b727-0287d8d4336c",
+            "containerId": "dafccc38-5255-4ffd-993a-9daddf92f666",
+            "name": "DetailsImmobile",
+            "url": "http://localhost:8000/api/immobiles/1",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2023-05-19T15:20:18.293Z",
+            "modified": "2023-05-19T15:20:41.126Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "5a98685f-5faf-4f67-a5d6-a48ec9324d7f",
+            "colId": "1e704672-67a3-4753-b727-0287d8d4336c",
+            "containerId": "dafccc38-5255-4ffd-993a-9daddf92f666",
+            "name": "DeleteImmobile",
+            "url": "http://localhost:8000/api/immobiles/1",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2023-05-19T15:22:20.619Z",
+            "modified": "2023-05-19T15:22:27.583Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "f60069fa-8c70-4f02-a51b-c63c66930953",
+            "colId": "1e704672-67a3-4753-b727-0287d8d4336c",
+            "containerId": "bef3a166-fb96-48f1-ade3-d6686ad0e2d5",
+            "name": "Create",
+            "url": "http://localhost:8000/api/immobile/2/mark-visit",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2023-05-21T18:05:21.360Z",
+            "modified": "2023-05-21T23:23:28.878Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n  \"visit_date\": \"2023-05-21\",\r\n  \"name\": \"João Silva\",\r\n  \"phone\": \"(99) 9999-9999\",\r\n  \"email\": \"matheus@gmail.com\"\r\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "c9554295-4e99-47fa-a738-9d2c95325c12",
+            "colId": "1e704672-67a3-4753-b727-0287d8d4336c",
+            "containerId": "bef3a166-fb96-48f1-ade3-d6686ad0e2d5",
+            "name": "GetVisit",
+            "url": "http://localhost:8000/api/visit-requests",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2023-05-22T13:43:25.603Z",
+            "modified": "2023-05-22T13:43:50.326Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
