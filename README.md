@@ -145,5 +145,7 @@
 
 ## OBS: Na raiz do projeto back-end estou enviando a documentação do thunder-client que utilizei para criar os endpoints.
 
+## Link Thunder Client
+[Download](https://github.com/MatheusMorais123/desafio-desenvolvedor/blob/Matheus_Morais_Martins/back-end/thunder-collection_CorretorOn.json)
 
 
