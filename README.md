@@ -1,9 +1,70 @@
 <p>
-    <img src="https://corretoron.com.br/assets/images/logo.png" width="300">
+    <img src="front-end/src/assets/home.png" width="300">
+    <img src="front-end/src/assets/imovel.png" width="300">
+    <img src="front-end/src/assets/visitas.png" width="300">
  </p>
  
 ## Documentação
     Immobile API (Construída com Laravel)
+
+    Registrar Usuário
+    Endpoint para registrar um novo usuário:
+
+    URL: /api/register
+    Método: POST
+    Corpo da solicitação:
+    {
+    "name": "Nome do usuário",
+    "email": "exemplo@dominio.com",
+    "password": "senha"
+    }
+    Resposta de sucesso:
+    {
+     "message": "User registered successfully"
+    }
+
+    Login
+    Endpoint para fazer login e obter um token de acesso:
+
+    URL: /api/login
+    Método: POST
+    Corpo da solicitação:
+    {
+    "email": "exemplo@dominio.com",
+    "password": "senha"
+    }
+    Resposta de sucesso:
+    {
+    "user": {
+        "id": 1,
+        "name": "Nome do usuário",
+        "email": "exemplo@dominio.com",
+        "created_at": "2023-05-22T12:00:00Z",
+        "updated_at": "2023-05-22T12:00:00Z"
+    },
+    "access_token": "token_de_acesso"
+    }
+    Obter Usuários
+    Endpoint para obter todos os usuários:
+
+    URL: /api/users
+    Método: GET
+    Cabeçalho da solicitação:
+    Chave: Authorization
+    Valor: Bearer token_de_acesso
+    Resposta de sucesso:
+    {
+    "users": [
+        {
+        "id": 1,
+        "name": "Nome do usuário",
+        "email": "exemplo@dominio.com",
+        "created_at": "2023-05-22T12:00:00Z",
+        "updated_at": "2023-05-22T12:00:00Z"
+        },
+        
+    ]
+    }
     Criar imóvel
     URL: /api/immobiles
     Método: POST
