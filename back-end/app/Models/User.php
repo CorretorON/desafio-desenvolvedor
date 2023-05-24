@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -41,4 +40,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Define o relacionamento "um para muitos" com o modelo Immobile.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function immobile()
+    {
+        return $this->hasMany(Immobile::class);
+    }
 }

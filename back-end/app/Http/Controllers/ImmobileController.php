@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Immobile;
 use App\Models\VisitRequest;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class ImmobileController extends Controller
 {
@@ -20,10 +22,13 @@ class ImmobileController extends Controller
             'price' => 'required|numeric',
         ]);
 
-        $immobile = Immobile::create($validatedData);
+        // Associar o imóvel ao usuário autenticado
+        $user = Auth::user();
+        $immobile = $user->immobile()->create($validatedData);
 
         return response()->json($immobile, 201);
     }
+
 
     public function update(Request $request, $id)
     {
@@ -48,7 +53,7 @@ class ImmobileController extends Controller
         $immobile = Immobile::findOrFail($id);
         $immobile->delete();
 
-        return response()->json(['message' => 'Imovel deleted successfully'], 200);
+        return response()->json(['message' => 'Imóvel deletado com sucesso'], 200);
     }
 
     public function show($id)
@@ -60,9 +65,9 @@ class ImmobileController extends Controller
 
     public function index()
     {
-        $imoveis = Immobile::all();
+    $imoveis = Immobile::all();
 
-        return response()->json(['imoveis' => $imoveis], 200);
+    return response()->json(['imoveis' => $imoveis], 200);
     }
 
     public function markVisit(Request $request, $id)
@@ -82,22 +87,23 @@ class ImmobileController extends Controller
 
         return response()->json($visitRequest, 201);
     }
+
     public function getAllVisitRequests()
     {
         $visitRequests = VisitRequest::with('immobile')->get();
 
-    $formattedVisitRequests = $visitRequests->map(function ($visitRequest) {
-        return [
-            'id' => $visitRequest->id,
-            'name' => $visitRequest->name,
-            'phone' => $visitRequest->phone,
-            'email' => $visitRequest->email,
-            'visit_date' => $visitRequest->visit_date,
-            'immobile_type' => $visitRequest->immobile->type,
-            'immobile_owner' => $visitRequest->immobile->owner,
-        ];
-    });
+        $formattedVisitRequests = $visitRequests->map(function ($visitRequest) {
+            return [
+                'id' => $visitRequest->id,
+                'name' => $visitRequest->name,
+                'phone' => $visitRequest->phone,
+                'email' => $visitRequest->email,
+                'visit_date' => $visitRequest->visit_date,
+                'immobile_type' => $visitRequest->immobile->type,
+                'immobile_owner' => $visitRequest->immobile->owner,
+            ];
+        });
 
-    return response()->json($formattedVisitRequests);
+        return response()->json($formattedVisitRequests);
     }
 }
