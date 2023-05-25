@@ -65,10 +65,11 @@ class ImmobileController extends Controller
 
     public function index()
     {
-    $imoveis = Immobile::all();
-
-    return response()->json(['imoveis' => $imoveis], 200);
+        $user = Auth::user();
+        $imoveis = $user->immobile;
+        return response()->json(['imoveis' => $imoveis], 200);
     }
+
 
     public function markVisit(Request $request, $id)
     {

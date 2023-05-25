@@ -9,7 +9,6 @@ export default function Login({ history }) {
   const handleLogin = async (event) => {
     event.preventDefault();
 
-    
     const errors = {};
     if (email.trim() === '') {
       errors.email = 'O campo e-mail é obrigatório';
@@ -24,12 +23,14 @@ export default function Login({ history }) {
     }
 
     try {
-      
       const response = await api.post('/login', {
         email,
         password
       });
-
+    
+      const { access_token } = response.data;
+    
+      localStorage.setItem('token', access_token);
     
       window.location.replace("/dashboard");
     } catch (error) {
@@ -38,9 +39,9 @@ export default function Login({ history }) {
   };
 
   return (
-    <div className='bg-background'>
-      <div className={"container"}>
-        <div className='content'>
+    <div className="bg-background">
+      <div className="container">
+        <div className="content">
           <h1>Login</h1>
           <form onSubmit={handleLogin}>
             <label htmlFor="email">E-mail *</label>
@@ -49,7 +50,7 @@ export default function Login({ history }) {
               id="email"
               placeholder="E-mail"
               value={email}
-              onChange={event => setEmail(event.target.value)}
+              onChange={(event) => setEmail(event.target.value)}
             />
             {errors.email && <span className="error">{errors.email}</span>}
             <label htmlFor="password">Senha *</label>
@@ -58,12 +59,14 @@ export default function Login({ history }) {
               id="password"
               placeholder="Senha"
               value={password}
-              onChange={event => setPassword(event.target.value)}
+              onChange={(event) => setPassword(event.target.value)}
             />
             {errors.password && <span className="error">{errors.password}</span>}
-            <button className="btn" type="submit">Entrar</button>
+            <button className="btn" type="submit">
+              Entrar
+            </button>
           </form>
-          <div className='center-form'>
+          <div className="center-form">
             <p>Ainda não possui uma conta?</p>
             <a href="/createAccount">Registrar-se</a>
           </div>

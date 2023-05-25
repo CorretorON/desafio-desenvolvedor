@@ -13,16 +13,24 @@ export default function Dashboard() {
   const [showDetailsModal, setShowDetailsModal] = useState(false);
   const [showMarkVisitModal, setShowMarkVisitModal] = useState(false);
   const [visit_date, setVisit_Date] = useState('');
-  const [name, setName,] = useState('');
+  const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [errors, setErrors] = useState({});
+
   useEffect(() => {
     async function fetchProperties() {
       try {
-        const response = await axios.get('http://localhost:8000/api/immobiles');
+        const token = localStorage.getItem('token'); // Obter o token do localStorage
+        const response = await axios.get('http://localhost:8000/api/immobiles', {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+
         setProperties(response.data.imoveis);
         setFilteredProperties(response.data.imoveis);
+        console.log(response.data.imoveis); // Processar os dados recebidos
       } catch (error) {
         console.error(error);
       }
@@ -95,20 +103,18 @@ export default function Dashboard() {
     }
 
     try {
-      
       const response = await api.post(`/immobile/${selectedProperty.id}/mark-visit`, {
         visit_date,
         name,
         phone,
         email
       });
-      alert("Visita agendada")
+      alert("Visita agendada");
       window.location.replace("/dashboard");
     } catch (error) {
       console.error(error);
     }
 
-    
     setShowMarkVisitModal(false);
     setVisit_Date('');
     setName('');
@@ -120,8 +126,6 @@ export default function Dashboard() {
     handleFilter();
   }, [selectedType, priceFilter]);
 
-
-  
   return (
     <div className="container">
       <Navbar />
@@ -182,43 +186,42 @@ export default function Dashboard() {
               <form onSubmit={handleMarkVisitSubmit}>
                 <label>Data da Visita:</label>
                 {errors.visit_date && <span className="error">{errors.visit_date}</span>}
-                  <input
-                    type="date"
-                    value={visit_date}
-                    onChange={event => setVisit_Date(event.target.value)}
-                  />
-                  
+                <input
+                  type="date"
+                  value={visit_date}
+                  onChange={event => setVisit_Date(event.target.value)}
+                />
 
                 <label>Nome:</label>
                 {errors.name && <span className="error">{errors.name}</span>}
-                  <input
-                    type="text"
-                    value={name}
-                    onChange={event => setName(event.target.value)}
-                  />
-                
+                <input
+                  type="text"
+                  value={name}
+                  onChange={event => setName(event.target.value)}
+                />
+
                 <label>Telefone:</label>
                 {errors.phone && <span className="error">{errors.phone}</span>}
-                  <input
-                    type="text"
-                    value={phone}
-                    onChange={event => setPhone(event.target.value)}
-                  />
-                
+                <input
+                  type="text"
+                  value={phone}
+                  onChange={event => setPhone(event.target.value)}
+                />
+
                 <label>E-mail:</label>
                 {errors.email && <span className="error">{errors.email}</span>}
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={event => setEmail(event.target.value)}
-                  />
-                
+                <input
+                  type="email"
+                  value={email}
+                  onChange={event => setEmail(event.target.value)}
+                />
                 <button type="submit">Marcar Visita</button>
               </form>
             </div>
           </div>
         </div>
       )}
+
     </div>
-  );
+  )
 }
