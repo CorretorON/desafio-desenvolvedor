@@ -62,4 +62,28 @@ class UserController extends Controller
 
         return response()->json(['users' => $users]);
     }
+    public function getAllVisitRequests()
+    {
+        $user = Auth::user();
+
+        $visitRequests = VisitRequest::with('immobile')
+            ->whereHas('immobile', function ($query) use ($user) {
+                $query->where('user_id', $user->id);
+            })
+            ->get();
+
+        $formattedVisitRequests = $visitRequests->map(function ($visitRequest) {
+            return [
+                'id' => $visitRequest->id,
+                'name' => $visitRequest->name,
+                'phone' => $visitRequest->phone,
+                'email' => $visitRequest->email,
+                'visit_date' => $visitRequest->visit_date,
+                'immobile_type' => $visitRequest->immobile->type,
+                'immobile_owner' => $visitRequest->immobile->owner,
+            ];
+        });
+
+        return response()->json($formattedVisitRequests);
+    }
 }

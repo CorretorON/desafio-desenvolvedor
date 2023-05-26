@@ -21,7 +21,7 @@ export default function Dashboard() {
   useEffect(() => {
     async function fetchProperties() {
       try {
-        const token = localStorage.getItem('token'); // Obter o token do localStorage
+        const token = localStorage.getItem('token');
         const response = await axios.get('http://localhost:8000/api/immobiles', {
           headers: {
             Authorization: `Bearer ${token}`
@@ -30,7 +30,7 @@ export default function Dashboard() {
 
         setProperties(response.data.imoveis);
         setFilteredProperties(response.data.imoveis);
-        console.log(response.data.imoveis); // Processar os dados recebidos
+        console.log(response.data.imoveis);
       } catch (error) {
         console.error(error);
       }
@@ -47,7 +47,8 @@ export default function Dashboard() {
     let filtered = properties;
 
     if (selectedType) {
-      filtered = filtered.filter(property => property.type === selectedType);
+      const lowerCaseType = selectedType.toLowerCase();
+      filtered = filtered.filter(property => property.type.toLowerCase() === lowerCaseType);
     }
 
     if (priceFilter === 'maior') {
@@ -103,7 +104,7 @@ export default function Dashboard() {
     }
 
     try {
-      const response = await api.post(`/immobile/${selectedProperty.id}/mark-visit`, {
+      const response = await api.post(`/immobiles/${selectedProperty.id}/mark-visit`, {
         visit_date,
         name,
         phone,

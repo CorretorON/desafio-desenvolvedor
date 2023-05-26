@@ -28,6 +28,12 @@ export default function Header() {
                             <span>Histórico de visitas</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="/update">
+                           
+                            <span>Gerenciamento de imoveis</span>
+                        </a>
+                    </li>
                 </ul> 
             </div>
         </>

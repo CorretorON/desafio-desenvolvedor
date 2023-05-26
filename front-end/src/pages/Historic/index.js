@@ -9,7 +9,12 @@ export default function Dashboard() {
   useEffect(() => {
     async function fetchVisitRequests() {
       try {
-        const response = await api.get('/visit-requests');
+        //const token = localStorage.getItem('token');
+        const response = await api.get('/visit-requests', {
+          /* headers: {
+            Authorization: `Bearer ${token}`
+          } */
+        });
         setVisitRequests(response.data);
       } catch (error) {
         console.error(error);
@@ -18,6 +23,7 @@ export default function Dashboard() {
 
     fetchVisitRequests();
   }, []);
+
 
   return (
     <div className="container">
@@ -54,3 +60,4 @@ export default function Dashboard() {
     </div>
   );
 }
+ 

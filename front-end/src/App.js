@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
+
 import Routes from './routes';
 
 function App() {

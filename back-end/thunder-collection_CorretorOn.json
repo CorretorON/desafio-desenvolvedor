@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "CorretorOn",
-    "dateExported": "2023-05-22T14:22:55.533Z",
+    "dateExported": "2023-05-26T18:14:15.350Z",
     "version": "1.1",
     "folders": [
         {
@@ -36,12 +36,12 @@
             "method": "POST",
             "sortNum": 10000,
             "created": "2023-05-19T13:50:25.590Z",
-            "modified": "2023-05-19T13:56:24.024Z",
+            "modified": "2023-05-26T16:42:04.854Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\r\n  \"name\": \"Matheus Morais\",\r\n  \"email\": \"matheus-morais02@hotmail.com\",\r\n  \"password\": \"123456\"\r\n}\r\n",
+                "raw": "{\n  \"name\": \"Matheus Morais\",\n  \"email\": \"matheus-morais02@hotmail.com\",\n  \"password\": \"123456\"\n}\n",
                 "form": []
             },
             "tests": []
@@ -55,13 +55,22 @@
             "method": "POST",
             "sortNum": 20000,
             "created": "2023-05-19T13:56:39.714Z",
-            "modified": "2023-05-19T13:56:52.848Z",
-            "headers": [],
+            "modified": "2023-05-24T18:20:53.048Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer 18|zoMSfkRGMJKTmn8s6jmTAHKvoq58UvJgBvSueThC"
+                }
+            ],
             "params": [],
             "body": {
                 "type": "json",
                 "raw": "{\n  \"email\": \"matheus-morais02@hotmail.com\",\n  \"password\": \"123456\"\n}\n",
                 "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "12|IBWUezlORJ4z3qyP4lSbmtCRUuwXzazKSp9sGa8T"
             },
             "tests": []
         },
@@ -74,12 +83,17 @@
             "method": "POST",
             "sortNum": 20000,
             "created": "2023-05-19T14:47:58.860Z",
-            "modified": "2023-05-21T17:19:35.371Z",
-            "headers": [],
+            "modified": "2023-05-26T16:43:15.410Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer 1|iPxA2SaokkzRmEYcIT8txS7IUFJkGy3lf4subfKQ"
+                }
+            ],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n    \"owner\": \"Alberto \",\n    \"type\": \"Apartamento\",\n    \"address\": \"Mogilar\",\n    \"bedrooms\": 3,\n    \"bathrooms\": 2,\n    \"total_area\": 125,\n    \"price\": 500000.00\n}\n",
+                "raw": "{\n    \"owner\": \"Matheus Morais\",\n    \"type\": \"Apartamento\",\n    \"address\": \"Helbor Life\",\n    \"bedrooms\": 3,\n    \"bathrooms\": 2,\n    \"total_area\": 125,\n    \"price\": 500000.00\n}\n",
                 "form": []
             },
             "tests": []
@@ -89,11 +103,11 @@
             "colId": "1e704672-67a3-4753-b727-0287d8d4336c",
             "containerId": "dafccc38-5255-4ffd-993a-9daddf92f666",
             "name": "UpdateImmobile",
-            "url": "http://localhost:8000/api/immobiles/1",
+            "url": "http://localhost:8000/api/immobiles/10",
             "method": "PUT",
             "sortNum": 25000,
             "created": "2023-05-19T15:20:49.070Z",
-            "modified": "2023-05-19T15:21:20.161Z",
+            "modified": "2023-05-26T15:21:44.374Z",
             "headers": [],
             "params": [],
             "body": {
@@ -112,8 +126,13 @@
             "method": "GET",
             "sortNum": 30000,
             "created": "2023-05-19T14:00:18.007Z",
-            "modified": "2023-05-19T14:00:51.162Z",
-            "headers": [],
+            "modified": "2023-05-26T18:14:00.454Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer "
+                }
+            ],
             "params": [],
             "tests": []
         },
@@ -126,8 +145,13 @@
             "method": "GET",
             "sortNum": 30000,
             "created": "2023-05-19T15:18:46.179Z",
-            "modified": "2023-05-19T15:19:10.524Z",
-            "headers": [],
+            "modified": "2023-05-25T14:07:07.536Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer 20|iNAd6l319xRaIyzp0MwqM8qtyIorVdnJkhYnJbh1"
+                }
+            ],
             "params": [],
             "tests": []
         },
@@ -150,12 +174,17 @@
             "colId": "1e704672-67a3-4753-b727-0287d8d4336c",
             "containerId": "dafccc38-5255-4ffd-993a-9daddf92f666",
             "name": "DeleteImmobile",
-            "url": "http://localhost:8000/api/immobiles/1",
+            "url": "http://localhost:8000/api/immobiles/10",
             "method": "DELETE",
             "sortNum": 40000,
             "created": "2023-05-19T15:22:20.619Z",
-            "modified": "2023-05-19T15:22:27.583Z",
-            "headers": [],
+            "modified": "2023-05-26T15:58:25.578Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer 18|zoMSfkRGMJKTmn8s6jmTAHKvoq58UvJgBvSueThC"
+                }
+            ],
             "params": [],
             "tests": []
         },
@@ -164,16 +193,21 @@
             "colId": "1e704672-67a3-4753-b727-0287d8d4336c",
             "containerId": "bef3a166-fb96-48f1-ade3-d6686ad0e2d5",
             "name": "Create",
-            "url": "http://localhost:8000/api/immobile/2/mark-visit",
+            "url": "http://localhost:8000/api/immobiles/1/mark-visit",
             "method": "POST",
             "sortNum": 60000,
             "created": "2023-05-21T18:05:21.360Z",
-            "modified": "2023-05-21T23:23:28.878Z",
-            "headers": [],
+            "modified": "2023-05-26T17:54:17.713Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer 29|6UhUcRmIGn768afYwrY8utvqEl1r7p30JMtufpDt"
+                }
+            ],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\r\n  \"visit_date\": \"2023-05-21\",\r\n  \"name\": \"João Silva\",\r\n  \"phone\": \"(99) 9999-9999\",\r\n  \"email\": \"matheus@gmail.com\"\r\n}",
+                "raw": "{\n  \"visit_date\": \"2023-05-21\",\n  \"name\": \"Silva\",\n  \"phone\": \"(99) 9999-9999\",\n  \"email\": \"matheus@gmail.com\"\n}",
                 "form": []
             },
             "tests": []
